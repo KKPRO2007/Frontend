@@ -1,12 +1,12 @@
 :root {
-  --ink: #1e293b; /* primary text */
-  --muted: #64748b; /* secondary text */
-  --bg: #f6f7fb; /* page bg */
-  --card: #ffffff; /* card bg */
-  --line: #e8ebf2; /* separators */
-  --brand: #2b6cb0; /* royal blue */
-  --accent: #8b5cf6; /* soft violet */
-  --gold: #c9a227; /* luxery accent */
+  --ink: #1e293b;
+  --muted: #64748b; 
+  --bg: #f6f7fb;
+  --card: #ffffff; 
+  --line: #e8ebf2; 
+  --brand: #2b6cb0;
+  --accent: #8b5cf6; 
+  --gold: #c9a227; 
 }
 
 body {
@@ -164,7 +164,7 @@ ul.values li::marker {
   border-right: 24px solid rgba(139, 92, 246, 0.18);
   border-top-right-radius: 14px;
 }
-/* Role badge via attribute selector + pseudo-element */
+
 .member[data-role="ceo"]::after {
   content: " CEO ";
   position: absolute;
@@ -200,12 +200,11 @@ ul.values li::marker {
   color: var(--muted);
 }
 
-/* Subtle alternation (pseudo-class) */
 .member:nth-child(odd) {
   background: linear-gradient(180deg, #ffffff, #fefeff);
 }
 
-/* ---------- Quote ---------- */
+
 blockquote {
   position: relative;
   margin: 0;
@@ -215,7 +214,7 @@ blockquote {
   border-radius: 14px;
   color: #334155;
 }
-/* Quote mark (pseudo-element) */
+
 blockquote::before {
   content: "“";
   position: absolute;
@@ -228,7 +227,6 @@ blockquote::before {
   opacity: 0.35;
 }
 
-/* ---------- CTA ---------- */
 .cta {
   display: flex;
   align-items: center;
@@ -260,7 +258,6 @@ blockquote::before {
   outline-offset: 2px;
 }
 
-/* ---------- Footer ---------- */
 footer {
   padding: 26px;
   text-align: center;
