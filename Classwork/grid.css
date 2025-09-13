@@ -1,0 +1,18 @@
+.grid-container {
+  display: grid;
+  border: 2px solid #333;
+  margin: 20px;
+  gap: 10px; /* space between items */
+  grid-template-columns:repeat(3, 1fr);
+  gap: 20px;
+
+}
+
+
+.item {
+  background: lightblue;
+  border: 1px solid #333;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}

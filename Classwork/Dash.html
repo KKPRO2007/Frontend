@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Grid Dashboard Layout</title>
+<style>
+  :root{
+    --bg:#f3f4f6; --panel:#ffffff; --accent:#0ea5e9; --muted:#64748b; --gap:16px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#0f172a}
+
+  /* Outer grid */
+  .dashboard{
+    display:grid;
+    grid-template-columns: 220px 1fr 320px;         /* sidebar | main | right widgets */
+    grid-template-rows: 64px 1fr 56px;              /* header | content | footer */
+    grid-template-areas:
+      "header header header"
+      "sidebar main right"
+      "footer footer footer";
+    gap: var(--gap);
+    padding: 18px;
+    min-height: calc(100vh - 36px);
+  }
+
+  header { grid-area: header; background:var(--panel); padding:12px 18px; border-radius:10px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 6px 18px rgba(2,6,23,.06) }
+  nav     { grid-area: sidebar; background:var(--panel); padding:14px; border-radius:10px; overflow:auto; min-height:0; }
+  main    { grid-area: main; background:var(--panel); padding:14px; border-radius:10px; overflow:auto; min-height:0; }
+  aside   { grid-area: right; background:var(--panel); padding:14px; border-radius:10px; overflow:auto; min-height:0; }
+  footer  { grid-area: footer; background:var(--panel); padding:12px 18px; border-radius:10px; display:flex; align-items:center; justify-content:center }
+
+  /* Sidebar */
+  .nav-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px }
+  .nav-list a { display:block; padding:8px 10px; border-radius:8px; color:var(--muted); text-decoration:none }
+  .nav-list a.active { background:linear-gradient(90deg,#e0f2fe,#bae6fd); color:#0369a1; font-weight:600 }
+
+  /* Header */
+  .brand { font-weight:700; font-size:1.05rem }
+  .search { display:flex; gap:8px; align-items:center; }
+
+  /* Main content nested grid for cards */
+  .cards {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* responsive cards */
+    gap: 14px;
+  }
+  .card {
+    background: linear-gradient(180deg,#ffffff,#fbfdff);
+    padding:12px; border-radius:10px; box-shadow: 0 6px 18px rgba(13,38,63,.05);
+  }
+  .card h3 { margin:0 0 8px; font-size:1rem }
+
+  /* Right column widgets */
+  .widget { margin-bottom:12px; padding:10px; border-radius:8px; background: linear-gradient(180deg,#fff,#fbfcff); box-shadow: 0 6px 18px rgba(5,20,40,.04) }
+
+  /* Responsive: stack to single column on narrow screens */
+  @media (max-width: 900px){
+    .dashboard {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "header"
+        "main"
+        "sidebar"
+        "right"
+        "footer";
+    }
+    .dashboard { padding:12px; }
+  }
+
+  /* small helpers */
+  .muted { color:var(--muted); font-size:.95rem }
+  .top-row { display:flex; gap:12px; align-items:center }
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+  <header>
+    <div class="top-row">
+      <div class="brand">Acme Analytics</div>
+      <div class="muted">• Admin Dashboard</div>
+    </div>
+    <div class="search">
+      <input type="search" placeholder="Search..." aria-label="Search" style="padding:8px;border-radius:8px;border:1px solid #e6eef8">
+      <button style="padding:8px 10px;border-radius:8px;border:none;background:var(--accent);color:#fff">Search</button>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-list">
+      <li><a href="#" class="active">Overview</a></li>
+      <li><a href="#">Orders</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Customers</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="cards" aria-label="Key metrics">
+      <div class="card"><h3>Revenue</h3><p class="muted">₹ 120,000</p></div>
+      <div class="card"><h3>Orders</h3><p class="muted">1,430</p></div>
+      <div class="card"><h3>Active Users</h3><p class="muted">3,200</p></div>
+      <div class="card"><h3>Conversion</h3><p class="muted">2.4%</p></div>
+      <div class="card"><h3>New Clients</h3><p class="muted">43</p></div>
+      <div class="card"><h3>Pending</h3><p class="muted">7</p></div>
+    </section>
+
+    <section style="margin-top:14px">
+      <div class="card"><h3>Recent Orders</h3><p class="muted">Order table or list would go here (scrollable)</p></div>
+    </section>
+  </main>
+
+  <aside>
+    <div class="widget"><strong>Server Status</strong><p class="muted">All systems operational</p></div>
+    <div class="widget"><strong>Notifications</strong><p class="muted">3 unread</p></div>
+    <div class="widget"><strong>Quick Links</strong><p class="muted">Shortcuts</p></div>
+  </aside>
+
+  <footer>
+    <div class="muted">© 2025 Acme • Built with CSS Grid</div>
+  </footer>
+</div>
+
+</body>
+</html>
