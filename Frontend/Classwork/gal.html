@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Responsive Gallery (CSS Grid)</title>
+<style>
+  :root{ --gap:12px; --bg:#f8fafc }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:system-ui,Arial,sans-serif;padding:18px}
+  h1{margin:0 0 12px}
+
+  .gallery {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* responsive columns */
+    gap: var(--gap);
+    align-items: stretch;
+  }
+
+  .tile {
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+    background:linear-gradient(180deg,#fff,#f3f4f6);
+    min-height:140px;
+    display:block;
+  }
+
+  .tile img {
+    width:100%; height:100%; display:block;
+    object-fit:cover; /* cover ensures image fills tile without distortion */
+  }
+
+  /* span classes to create visual variety */
+  .span-2 { grid-column: span 2; }
+  .span-2-rows { grid-row: span 2; }
+
+  /* caption overlay */
+  .caption {
+    position:absolute; left:12px; right:12px; bottom:12px;
+    padding:8px 10px; background:linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.45));
+    color:white; border-radius:8px; font-size:.95rem;
+  }
+
+  /* Make sure spans don't break on small screens */
+  @media (max-width:540px){
+    .span-2, .span-2-rows { grid-column: span 1; grid-row: span 1; }
+  }
+</style>
+</head>
+<body>
+<h1>Responsive Photo Gallery</h1>
+<p style="color:#64748b;margin-top:4px">Resize the browser to see columns adapt using <code>auto-fit</code> + <code>minmax()</code>.</p>
+
+<div class="gallery" aria-label="Photo gallery">
+  <a class="tile span-2" href="#">
+    <img src="https://images.unsplash.com/photo-1558981403-cd1f0d3b3d?auto=format&fit=crop&w=1200&q=60" alt="Mountains">
+    <div class="caption">Featured — Mountains</div>
+  </a>
+  <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60" alt="Beach"><div class="caption">Beach</div></a>
+  <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=60" alt="City"><div class="caption">City</div></a>
+  <a class="tile span-2-rows" href="#"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=60" alt="Forest"><div class="caption">Tall — Forest</div></a>
+  <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60" alt="Desert"><div class="caption">Desert</div></a>
+  <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1439396087961-98bc12c21176?auto=format&fit=crop&w=800&q=60" alt="Bridge"><div class="caption">Bridge</div></a>
+  <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60" alt="Lake"><div class="caption">Lake</div></a>
+</div>
+
+</body>
+</html>

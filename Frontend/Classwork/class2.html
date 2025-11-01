@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+</head>
+<body>
+  <h2>User Registration</h2>
+  <form action="/submit" method="POST" enctype="multipart/form-data">
+
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="first_name" required><br><br>
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="last_name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" minlength="6" required><br><br>
+
+    <label for="gender">Geder:</label>
+    <input type="radio" name="gender"  value="male"> Male
+    <input type="radio" name="gender" id="gender" value="female"> Female
+    <input type="radio" name="gender" id="gender" value="other"> Other<br><br>
+
+    <label for="db">Dt:</label>
+    <input type="date" ><br><br>
+
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+      <option value="">--Select--</option>
+      <option value="india">India</option>
+      <option value="usa">USA</option>
+      <option value="uk">UK</option>
+    </select><br><br>
+
+    <label for="resume">Upload Resume:</label>
+    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx"><br><br>
+
+    <label for="bio">Short Bio:</label><br>
+    <textarea></textarea><br><br>
+
+    <label>
+      <input type="checkbox" name="terms" required> I agree to the Terms & Conditions
+    </label><br><br>
+
+    <input type="submit" >
+    <input type="reset" >
+
+  </form>
+</body>
+</html>
