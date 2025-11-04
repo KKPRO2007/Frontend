@@ -8,4 +8,3 @@ function reverseRightTriangle(rows) {
     }
 }
 
-reverseRightTriangle(7);
