@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Startup Landing Page</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+  @keyframes floatAstronaut { 0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);} }
+  @keyframes launchRocket { 0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(-200px) rotate(720deg);} }
+  @keyframes orbitSpace { 0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
+
+  .astronaut { width: 80px; animation: floatAstronaut 4s ease-in-out infinite; }
+  .rocket { width: 60px; animation: launchRocket 6s ease-in-out infinite; }
+  .space { width: 100px; animation: orbitSpace 10s linear infinite; }
+
+  nav .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  nav .nav-link:hover {
+    background-color: #0d6efd; color: white !important; transform: scale(1.1); border-radius: 6px;
+  }
+
+  footer { background-color: #222; color: #eee; padding: 20px 0; text-align: center; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Startup</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="container my-5 text-center">
+  <div class="row align-items-center">
+    <div class="col-md-4"><img src="astronaut.png" alt="Astronaut" class="astronaut" /></div>
+    <div class="col-md-4"><img src="rocket.png" alt="Rocket" class="rocket" /></div>
+    <div class="col-md-4"><img src="space.png" alt="Space" class="space" /></div>
+  </div>
+</section>
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="height:400px; background:url('slide1.jpg') center/cover no-repeat;">
+      <div class="carousel-caption d-none d-md-block"><h5>Innovation</h5><p>Discover new tech solutions</p></div>
+    </div>
+    <div class="carousel-item" style="height:400px; background:url('slide2.jpg') center/cover no-repeat;">
+      <div class="carousel-caption d-none d-md-block"><h5>Creativity</h5><p>Creative ideas for business</p></div>
+    </div>
+    <div class="carousel-item" style="height:400px; background:url('slide3.jpg') center/cover no-repeat;">
+      <div class="carousel-caption d-none d-md-block"><h5>Growth</h5><p>Growing your startup exponentially</p></div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<section class="container my-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100"><img src="service1.jpg" class="card-img-top" alt="Service 1" /><div class="card-body"><h5 class="card-title">Web Development</h5><p class="card-text">Build powerful and scalable web applications.</p></div></div>
+    </div>
+    <div class="col">
+      <div class="card h-100"><img src="service2.jpg" class="card-img-top" alt="Service 2" /><div class="card-body"><h5 class="card-title">Mobile Apps</h5><p class="card-text">Creating intuitive mobile applications.</p></div></div>
+    </div>
+    <div class="col">
+      <div class="card h-100"><img src="service3.jpg" class="card-img-top" alt="Service 3" /><div class="card-body"><h5 class="card-title">Cloud Solutions</h5><p class="card-text">Reliable and secure cloud computing services.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2025 Startup, Inc.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

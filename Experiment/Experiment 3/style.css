@@ -20,7 +20,7 @@
       max-height: 100vh;
     }
 
-    /* ===== Sidebar ===== */
+
     .sidebar {
       background: var(--sidebar-bg);
       color: #fff;
@@ -65,7 +65,7 @@
       background-color: #fff1;
     }
 
-    /* ===== Main Content ===== */
+
     .content {
       flex: 1;
       padding: 2rem;
@@ -80,7 +80,7 @@
       color: var(--sidebar-bg);
     }
 
-    /* ===== Product Cards ===== */
+
     .products {
       display: flex;
       flex-wrap: wrap;
@@ -136,7 +136,7 @@
       background: #e85a4f;
     }
 
-    /* ===== Blog Layout ===== */
+  
     .blog-grid {
       display: flex;
       gap: 2rem;
