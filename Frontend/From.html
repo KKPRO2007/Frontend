@@ -161,3 +161,166 @@
   </form>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f5f9;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    form {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+      color: #555;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    select,
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus,
+    input[type="file"]:focus {
+      border-color: #0056b3;
+      outline: none;
+      box-shadow: 0 0 8px #0056b3;
+    }
+    .radio-group {
+      margin-top: 12px;
+    }
+    .radio-group input {
+      margin-right: 6px;
+      cursor: pointer;
+    }
+    textarea {
+      resize: vertical;
+    }
+    label.checkbox-label {
+      display: flex;
+      align-items: center;
+      font-weight: normal;
+      color: #444;
+    }
+    label.checkbox-label input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .btn-group {
+      margin-top: 20px;
+      text-align: center;
+    }
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      margin: 0 10px;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    input[type="reset"] {
+      background-color: #6c757d;
+      color: white;
+    }
+    input[type="reset"]:hover {
+      background-color: #545b62;
+    }
+  </style>
+</head>
+<body>
+  <form action="/submit" method="POST" enctype="multipart/form-data">
+    <h2>User Registration</h2>
+
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="first_name" required />
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="last_name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" minlength="6" required />
+
+    <label>Gender:</label>
+    <div class="radio-group">
+      <input type="radio" name="gender" value="male" id="male" />
+      <label for="male">Male</label>
+      <input type="radio" name="gender" value="female" id="female" />
+      <label for="female">Female</label>
+      <input type="radio" name="gender" value="other" id="other" />
+      <label for="other">Other</label>
+    </div>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" />
+
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+      <option value="">--Select--</option>
+      <option value="india">India</option>
+      <option value="usa">USA</option>
+      <option value="uk">UK</option>
+    </select>
+
+    <label for="resume">Upload Resume:</label>
+    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" />
+
+    <label for="bio">Short Bio:</label>
+    <textarea id="bio" name="bio" rows="4"></textarea>
+
+    <label class="checkbox-label">
+      <input type="checkbox" name="terms" required />
+      I agree to the Terms & Conditions
+    </label>
+
+    <div class="btn-group">
+      <input type="submit" value="Register" />
+      <input type="reset" value="Clear" />
+    </div>
+  </form>
+</body>
+</html>
