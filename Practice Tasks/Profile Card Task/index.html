@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Card Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="main">
+    <section id="profile-card">
+      <img id="avatar" src="https://placehold.co/80x80/222/fff?text=IMG" alt="Avatar">
+      <h1 id="user-name">John Doe</h1>
+      <h2 id="user-role">Web Developer</h2>
+      <p id="user-bio">A passionate coder who loves black and white UI.</p>
+      <div id="skills" class="skills"></div>
+      <div id="details" class="details">
+        <p>Extra info. You can hide/show this.</p>
+      </div>
+    </section>
+    <aside id="panel">
+      <input id="input-name" type="text" placeholder="Name">
+      <input id="input-role" type="text" placeholder="Role">
+      <textarea id="input-bio" rows="2" placeholder="Bio"></textarea>
+      <input id="input-img" type="text" placeholder="Image URL">
+      <button id="btn-img">Set Image</button>
+      <button id="btn-anime">Use Anime Profile</button>
+      <span id="img-error" style="display:none; color:#f66;">Invalid image link!</span>
+      <input id="input-skill" type="text" placeholder="Skill">
+      <button id="btn-add-skill">Add Skill</button>
+      <button id="btn-remove-skill">Remove Last Skill</button>
+      <button class="theme-btn" data-color="#fff" style="color:#222;">White</button>
+      <button class="theme-btn" data-color="#222" style="color:#fff;">Black</button>
+      <button id="btn-toggle-details">Hide/Show Details</button>
+    </aside>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

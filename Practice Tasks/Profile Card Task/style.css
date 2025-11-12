@@ -1,0 +1,102 @@
+body {
+  background: #222;
+  color: #fff;
+  font-family: sans-serif;
+  margin: 0;
+}
+#main {
+  display: flex;
+  gap: 2em;
+  padding: 2em;
+}
+#profile-card {
+  background: #232323;
+  border-radius: 15px;
+  padding: 2em 1em;
+  min-width: 250px;
+  max-width: 300px;
+  box-shadow: 0 4px 24px #111;
+}
+#avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: .8em;
+  border: 2px solid #fff;
+  background: #111;
+  object-fit: cover;
+}
+#user-name {
+  font-size: 1.5em;
+  margin: .2em 0;
+  letter-spacing: 1px;
+}
+#user-role {
+  font-size: 1em;
+  color: #aaa;
+  margin: 0 0 .5em 0;
+}
+#user-bio {
+  font-size: .95em;
+  margin: 0 0 1em 0;
+}
+.skills {
+  display: flex;
+  gap: .4em;
+  flex-wrap: wrap;
+}
+.skill {
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  padding: .3em .7em;
+  font-size: .9em;
+  display: flex;
+  align-items: center;
+  margin-bottom: .15em;
+  box-shadow: 0 1px 6px #0003;
+}
+.skill .remove-x {
+  margin-left: .5em;
+  cursor: pointer;
+  color: #ff7676;
+  border: none;
+  background: none;
+  font-weight: bold;
+}
+.details {
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 8px;
+  background: #0004;
+  font-size: .9em;
+}
+.hidden {
+  display: none;
+}
+.theme-btn.active {
+  outline: 2px solid #fff;
+}
+input, textarea, button {
+  margin: .35em 0;
+  border-radius: 7px;
+  padding: .38em .7em;
+  border: none;
+  font-size: 1em;
+}
+button {
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+}
+button.theme-btn {
+  background: inherit;
+  border: 2px solid #fff;
+  font-size: 1em;
+  margin-right: .2em;
+}
+#panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+}
