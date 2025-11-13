@@ -1,102 +1,58 @@
 body {
-  background: #222;
-  color: #fff;
-  font-family: sans-serif;
-  margin: 0;
+display: flex;
 }
-#main {
-  display: flex;
-  gap: 2em;
-  padding: 2em;
+form {
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+width: 300px;
 }
-#profile-card {
-  background: #232323;
-  border-radius: 15px;
-  padding: 2em 1em;
-  min-width: 250px;
-  max-width: 300px;
-  box-shadow: 0 4px 24px #111;
+
+form input, form textarea, form button {
+display: block;
+width: 100%;
+margin: 10px 0;
+padding: 8px;
+border-radius: 5px;
+border: 1px solid #ccc;
+font-size: 14px;
 }
-#avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: .8em;
-  border: 2px solid #fff;
-  background: #111;
-  object-fit: cover;
-}
-#user-name {
-  font-size: 1.5em;
-  margin: .2em 0;
-  letter-spacing: 1px;
-}
-#user-role {
-  font-size: 1em;
-  color: #aaa;
-  margin: 0 0 .5em 0;
-}
-#user-bio {
-  font-size: .95em;
-  margin: 0 0 1em 0;
-}
-.skills {
-  display: flex;
-  gap: .4em;
-  flex-wrap: wrap;
-}
-.skill {
-  background: #111;
-  color: #fff;
-  border-radius: 12px;
-  padding: .3em .7em;
-  font-size: .9em;
-  display: flex;
-  align-items: center;
-  margin-bottom: .15em;
-  box-shadow: 0 1px 6px #0003;
-}
-.skill .remove-x {
-  margin-left: .5em;
-  cursor: pointer;
-  color: #ff7676;
-  border: none;
-  background: none;
-  font-weight: bold;
-}
-.details {
-  margin-top: 1em;
-  padding: 1em;
-  border-radius: 8px;
-  background: #0004;
-  font-size: .9em;
-}
-.hidden {
-  display: none;
-}
-.theme-btn.active {
-  outline: 2px solid #fff;
-}
-input, textarea, button {
-  margin: .35em 0;
-  border-radius: 7px;
-  padding: .38em .7em;
-  border: none;
-  font-size: 1em;
-}
+
 button {
-  background: #fff;
-  color: #222;
-  cursor: pointer;
+background: blue;
+color: white;
+cursor: pointer;
+border: none;
+font-weight: bold;
 }
-button.theme-btn {
-  background: inherit;
-  border: 2px solid #fff;
-  font-size: 1em;
-  margin-right: .2em;
+
+button:hover {
+background: #0056b3;
 }
-#panel {
-  display: flex;
-  flex-direction: column;
-  min-width: 220px;
+
+.profile-card {
+background: white;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+padding: 20px;
+width: 300px;
+text-align: center;
+transition: 0.3s ease;
+}
+
+.profile-card img {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+object-fit: cover;
+}
+
+.profile-card h3 {
+margin: 10px 0 5px;
+}
+
+.profile-card p {
+color: #555;
+font-size: 14px;
 }
