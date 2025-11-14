@@ -1,0 +1,43 @@
+body {
+  font-family: Arial;
+  background: white;
+  padding: 20px;
+}
+
+.todo-container {
+  width: 350px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#todoInput {
+  width: 70%;
+  padding: 8px;
+}
+
+#addBtn {
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+#todoList {
+  margin-top: 20px;
+}
+
+li {
+  background: white;
+  padding: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  color: white;
+  background: red;
+  padding: 5px;
+  cursor: pointer;
+}
