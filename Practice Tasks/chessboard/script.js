@@ -1,5 +1,4 @@
 const chessboard = document.getElementById('chessboard');
-
 for (let i = 0; i < 64; i++) {
   const div = document.createElement('div');
   div.className = 'square';
