@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  textarea {
+    width: 300px;
+    height: 120px;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+</style>
+</head>
+<body>
+<textarea id="text" maxlength="100" oninput="count()"></textarea>
+<p id="co">Characters left: 100</p>
+<script>
+function count() {
+  let text = document.getElementById("text");
+  let co = document.getElementById("co");
+  let left = 100 - text.value.length;
+  co.textContent = "Characters left: " + left;
+  co.style.color =  left > 60 ? "green" : left > 20 ? "orange" : "red";
+}
+</script>
+</body>
+</html>
