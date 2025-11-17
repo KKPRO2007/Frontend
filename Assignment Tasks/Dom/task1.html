@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List (DOM)</title>
+<style>
+  #todo-container {max-width: 400px;}
+  input {padding: 8px;}
+  button {
+    padding: 8px 10px;
+    margin-left: 5px;}
+  li {
+    padding: 8px;
+    background: whitesmoke;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;}
+</style>
+</head>
+
+<body>
+
+<div id="todo-container">
+  <h2>To-Do List</h2>
+  <input id="taskInput" type="text" placeholder="Enter task">
+  <button onclick="addTask()">Add Task</button>
+  <ul id="taskList"></ul>
+</div>
+
+<script>
+  const input = document.getElementById("taskInput");
+  const taskList = document.getElementById("taskList");
+  
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  function save() {
+    localStorage.setItem("tasks", JSON.stringify(tasks)); 
+}
+
+  function displayTasks() {
+    taskList.innerHTML = "";
+    tasks.forEach((t, i) => {
+      taskList.innerHTML += `
+        <li>
+          <span>${t}</span>
+          <div>
+            <button onclick="editTask(${i})">Edit</button>
+            <button onclick="deleteTask(${i})">Delete</button>
+          </div>
+        </li>`;
+    });
+
+    save();
+}
+  function addTask() {
+    if (!input.value.trim()) return alert("Enter a task!");
+    tasks.push(input.value.trim());
+    input.value = "";
+    displayTasks();}
+  function deleteTask(i) {
+    tasks.splice(i, 1);
+    displayTasks();
+}
+  function editTask(i) {
+    let txt = prompt("Edit task:", tasks[i]);
+    if (txt && txt.trim()) {
+      tasks[i] = txt.trim();
+      displayTasks();
+    }
+    }
+  displayTasks();
+</script>
+</body>
+</html>
