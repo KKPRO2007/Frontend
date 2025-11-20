@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Carousel</title>
+<style>
+  .box { width:400px; height:250px; margin:auto; position:relative; }
+  img { width:100%; height:100%; }
+  button { position:absolute; top:45%; }
+  #p { left:5px; }
+  #n { right:5px; }
+</style>
+</head>
+<body>
+
+<div class="box" id="box">
+  <img id="pic" src="">
+  <button id="p">Prev</button>
+  <button id="n">Next</button>
+</div>
+
+<script>
+let imgs = [
+ "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.dlCwxaBo46COklBox2jstwHaEK%3Fpid%3DApi&f=1&ipt=3f6f87eaa5cc60b4c0f28b8ee2b543d9db0244f146457549359ddff4c974b12b&ipo=images",
+ "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIF.2hXNWAPAft4Is0F7siOcoQ%3Fpid%3DApi&f=1&ipt=8c43ff905ac113de064502416d45c553d5e816a16106161467fd82fc41ea53ca&ipo=images",
+ "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.1mNYykzhVcO70DXgemTMDwHaEK%3Fpid%3DApi&f=1&ipt=9a23b17ca9de09bc5ac2b28c3bc954d29b29675a5f04227ba107e40d4fba1d47&ipo=images",
+ "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.Pt-d3xIqKN10xgMTsrpyuQHaE8%3Fpid%3DApi&f=1&ipt=414df6bf26276a916887e547fea52950f7e86fc48468af2c9342a66b17e8b605&ipo=images"
+];
+
+let i = 0;
+let pic = document.getElementById("pic");
+pic.src = imgs[i];
+
+function show(x){
+  i = (i + x + imgs.length) % imgs.length;
+  pic.src = imgs[i];
+}
+
+document.getElementById("n").onclick = () => show(1);
+document.getElementById("p").onclick = () => show(-1);
+let auto = setInterval(()=>show(1),3000);
+document.getElementById("box").onmouseover = ()=>clearInterval(auto);
+document.getElementById("box").onmouseout = ()=>auto=setInterval(()=>show(1),3000);
+</script>
+
+</body>
+</html>
