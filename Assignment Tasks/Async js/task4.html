@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Post Loader - Promise Task</title>
+<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+    }
+    .box {
+        width: 350px;
+        margin: auto;
+        padding: 20px;
+        border: 2px solid #444;
+        border-radius: 10px;
+    }
+    button {
+        padding: 8px 15px;
+        background: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    #status {
+        margin-top: 10px;
+        font-size: 14px;
+        color: blue;
+    }
+    li {
+        margin: 5px 0;
+    }
+</style>
+</head>
+<body>
+
+<h2>Task 4: Post Loader with Delayed Promise</h2>
+
+<div class="box">
+    <button id="loadBtn">Load Posts</button>
+    <ul id="postList"></ul>
+    <div id="status"></div>
+</div>
+
+<script>
+const loadBtn = document.getElementById("loadBtn");
+const postList = document.getElementById("postList");
+const status = document.getElementById("status");
+function fetchPosts() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() < 0.3) {
+                reject("Failed to load posts.");
+            }
+
+            resolve([
+                "Understanding JavaScript DOM",
+                "Async & Await Simplified",
+                "Why Promises Changed JS",
+                "Mastering ES6 Features"
+            ]);
+
+        }, 2000);
+    });
+}
+
+async function loadPosts() {
+    postList.innerHTML = "";
+    status.innerText = "Loading posts...";
+
+    try {
+        const posts = await fetchPosts();
+
+        status.innerText = "";
+        posts.forEach(title => {
+            let li = document.createElement("li");
+            li.innerText = title;
+            postList.appendChild(li);
+        });
+
+    } catch (error) {
+        status.innerText = error + " Click again to retry.";
+    }
+}
+loadBtn.onclick = loadPosts;
+</script>
+
+</body>
+</html>

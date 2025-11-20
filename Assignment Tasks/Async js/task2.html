@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random Joke Generator</title>
+<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #jokeBox {
+        margin-top: 20px;
+        padding: 20px;
+        border: 2px solid #444;
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 8px;
+    }
+
+    button {
+        padding: 10px 15px;
+        background: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    #setup { font-weight: bold; margin-bottom: 8px; }
+    #load { display: none; margin-top: 10px; color: blue; }
+</style>
+</head>
+<body>
+
+<h2>Task 2: Random Joke Generator</h2>
+
+<button id="nextBtn">Next Joke</button>
+<div id="load">⏳ Getting a joke...</div>
+
+<div id="jokeBox">
+    <div id="setup">Click "Next Joke"</div>
+    <div id="punchline"></div>
+</div>
+
+<script>
+const btn = document.getElementById("nextBtn");
+const setup = document.getElementById("setup");
+const punch = document.getElementById("punchline");
+const load = document.getElementById("load");
+function getJoke() {
+    btn.disabled = true;      
+    load.style.display = "block";
+    setup.innerText = "";
+    punch.innerText = "";
+
+    fetch("https://official-joke-api.appspot.com/random_joke")
+    .then(res => res.json())
+    .then(joke => {
+        setup.innerText = joke.setup;
+        punch.innerText = joke.punchline;
+    })
+    .catch(() => {
+        setup.innerText = "Failed to fetch joke!";
+    })
+    .finally(() => {
+        btn.disabled = false; 
+        load.style.display = "none";
+    });
+}
+
+btn.addEventListener("click", getJoke);
+getJoke();
+</script>
+
+</body>
+</html>

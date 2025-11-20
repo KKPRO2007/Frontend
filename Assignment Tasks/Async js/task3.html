@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather App</title>
+<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .box {
+        width: 350px;
+        margin: auto;
+        padding: 20px;
+        border: 2px solid #444;
+        border-radius: 10px;
+    }
+
+    input {
+        width: 90%;
+        padding: 8px;
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    #error {
+        margin-top: 10px;
+        color: red;
+        font-size: 14px;
+    }
+
+    #result {
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h2>Task 3: Weather Information App</h2>
+
+<div class="box">
+    <input id="city" placeholder="Enter city">
+    <button id="btn">Get Weather</button>
+
+    <div id="error"></div>
+    <div id="result"></div>
+</div>
+
+<script>
+const apiKey = "d59e7619e61f78e66db977128ad21800";
+const btn = document.getElementById("btn");
+const cityInput = document.getElementById("city");
+const result = document.getElementById("result");
+const errorBox = document.getElementById("error");
+
+btn.onclick = async function() {
+    const city = cityInput.value.trim();
+
+    if (city === "") {
+        errorBox.innerText = "Please enter a city name.";
+        result.innerHTML = "";
+        return;
+    }
+    errorBox.innerText = "";
+    result.innerHTML = "⏳ Fetching weather...";
+    try {
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+        const data = await res.json();
+
+        if (data.cod !== 200) {
+            errorBox.innerText = "Invalid city name. Try again!";
+            result.innerHTML = "";
+            return;
+        }
+        const temp = data.main.temp;
+        const humidity = data.main.humidity;
+        const condition = data.weather[0].description;
+
+        result.innerHTML = `
+            Temperature: ${temp}°C<br>
+            Humidity: ${humidity}%<br>
+            Condition: ${condition}
+        `;
+
+    } catch (error) {
+        errorBox.innerText = "API error. Please try again later.";
+        result.innerHTML = "";
+    }
+};
+</script>
+
+</body>
+</html>
